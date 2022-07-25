@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+v=82
+while [ ${v} -eq 82 ]; do
+  ${HOME}/.nix-profile/bin/emacs -f my-exwm-enable
+  v=${?}
+done
+exit ${v}
