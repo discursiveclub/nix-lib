@@ -37,6 +37,7 @@
       custom-command = "zsh -c '(tmux attach || tmux new-session) &>/dev/null'";
       scrollbar-policy = "never";
       use-custom-command = true;
+      use-theme-colors = false;
       visible-name = "Default";
     };
   };
