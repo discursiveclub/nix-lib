@@ -3,15 +3,14 @@
     execWheelOnly = true;
     extraConfig = "Defaults timestamp_type=global,timestamp_timeout=-1";
   };
-  # Need to be able to test this; should do something similar for
-  # keychain
-  #
-  # systemd.user.services.sudo-reset = {
-  #   description = "reset sudo authentication after sleeping";
-  #   wantedBy = [ "post-resume.target" ];
-  #   partOf = [ "post-resume.target" ];
-  #   serviceConfig.ExecStart = ''
-  #     ${pkgs.sudo}/bin/sudo -k
-  #   '';
-  # };
+  systemd.services.sudo-reset = {
+    description = "Reset sudo timeout upon resume from sleep";
+    partOf = [ "post-resume.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.bash}/bin/bash -c 'rm -f /run/sudo/ts/*'";
+      RemainAfterExit = "yes";
+      Type = "oneshot";
+    };
+    wantedBy = [ "post-resume.target" ];
+  };
 }
