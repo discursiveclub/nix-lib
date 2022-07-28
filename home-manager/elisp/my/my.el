@@ -48,6 +48,7 @@
  '(fill-column 80)
  '(fringe-mode 1)
  '(global-whitespace-mode t)
+ '(indent-tabs-mode nil)
  `(inhibit-startup-echo-area-message ,(getenv "USER"))
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)

@@ -1,6 +1,5 @@
 { elispBuild, lib, pkgs, ... }: {
   home = {
-    file.".config/emacs/init.el".source = ../elisp/init.el;
     packages = [
       (pkgs.concatTextFile {
         name = "exwm";

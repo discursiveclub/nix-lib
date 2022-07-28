@@ -1,11 +1,16 @@
-{ elispBuild, ... }: {
-  home.file.".config/emacs/init.el".source = ../elisp/init.el;
+{ elispBuild, lib, ... }: {
   programs = {
     emacs = {
       enable = true;
-      extraConfig = ''
-        (require 'my)
-        (enable-theme 'my)
+      extraConfig = lib.mkBefore ''
+        (load "~/.config/emacs/custom.el")
+        (require 'use-package)
+        (use-package magit)
+        (use-package my
+          :bind (("C-x b" . my-switch-buffer)
+                 ("C-x C-b" . my-switch-buffer))
+          :config (enable-theme 'my))
+        (use-package nix-mode)
       '';
       extraPackages = epkgs: let
         my = elispBuild epkgs {
