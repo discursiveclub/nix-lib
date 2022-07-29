@@ -19,7 +19,10 @@
       });
   in {
     homeManagerModules = {
-      emacs = importHmModule ./home-manager/modules/emacs.nix;
+      emacs = {
+        init = importHmModule ./home-manager/modules/emacs/init.nix;
+        all-the-icons = importHmModule ./home-manager/modules/emacs/all-the-icons.nix;
+      };
       exwm = importHmModule ./home-manager/modules/exwm.nix;
       firefox = importHmModule ./home-manager/modules/firefox.nix;
       git = importHmModule ./home-manager/modules/git.nix;

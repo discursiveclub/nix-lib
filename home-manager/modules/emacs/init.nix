@@ -1,14 +1,13 @@
-{ elispBuild, lib, ... }: {
-  home.file.".config/emacs/init.el".source = ../elisp/init.el;
+{ elispBuild, lib, unstable, ... }: {
+  home.file.".config/emacs/init.el".source = ./init.el;
   programs = {
     emacs = {
       enable = true;
-      extraConfig = builtins.readFile ./emacs.el;
       extraPackages = epkgs: let
         my = elispBuild epkgs {
           pname = "my";
           version = "0.0.0";
-          src = ../elisp/my;
+          src = ../../elisp/my;
           packageRequires = [];
         };
       in
