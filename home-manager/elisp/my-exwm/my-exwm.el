@@ -135,7 +135,23 @@
         ("s-7" . ,(my-exwm-make-workspace-switcher 6))
         ("s-8" . ,(my-exwm-make-workspace-switcher 7))
         ("s-9" . ,(my-exwm-make-workspace-switcher 8))
-        ("s-0" . ,(my-exwm-make-workspace-switcher 9)))))
+        ("s-0" . ,(my-exwm-make-workspace-switcher 9))
+        ("<XF86AudioMute>" .
+         (lambda ()
+           (interactive)
+           (start-process-shell-command "volume-up" "pactl set-sink-mute 0 toggle")))
+        ("<XF86AudioRaiseVolume>" .
+         (lambda ()
+           (interactive)
+           (start-process-shell-command "volume-up" "pactl set-sink-volume 0 +10%")))
+        ("<XF86AudioLowerVolume>" .
+         (lambda ()
+           (interactive)
+           (start-process-shell-command "volume-up" "pactl set-sink-volume 0 -10%")))
+        ("<XF86AudioMicMute>" .
+         (lambda ()
+           (interactive)
+           (start-process-shell-command "volume-up" "pactl set-source-mute 1 toggle"))))))
  `(exwm-input-simulation-keys
    ',(my-exwm-kbd-all
       '(("C-_" . "C-z")
