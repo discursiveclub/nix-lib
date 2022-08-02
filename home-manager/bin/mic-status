@@ -6,5 +6,5 @@ else
         head -n1 |\
         cut -d'/' -f2 |\
         sed 's/ *//g')
-  echo " ${vol}%"
+  echo " ${vol}"
 fi
