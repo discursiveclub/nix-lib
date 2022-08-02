@@ -4,4 +4,4 @@ vol=$(pactl get-sink-volume @DEFAULT_SINK@ |\
         head -n1 |\
         cut -d'/' -f2 |\
         sed 's/ *//g')
-notify-desktop -t 1000 -r 8322483232 "Volume ${vol}"
+notify-desktop -t 1000 -r 8322483232 "Speaker ${vol}"
