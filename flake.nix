@@ -28,7 +28,6 @@
       git = importHmModule ./home-manager/modules/git.nix;
       gnome-terminal = importHmModule ./home-manager/modules/gnome-terminal.nix;
       keychain = importHmModule ./home-manager/modules/keychain.nix;
-      my-gnome-panel = importHmModule ./home-manager/modules/my-gnome-panel.nix;
       proton-vpn = importHmModule ./home-manager/modules/proton-vpn.nix;
       tmux = importHmModule ./home-manager/modules/tmux.nix;
       xbanish = importHmModule ./home-manager/modules/xbanish.nix;
@@ -41,7 +40,6 @@
     };
     nixosModules = {
       git = import ./nixos/modules/git.nix;
-      my-gnome-panel = import ./nixos/modules/my-gnome-panel.nix;
       proton-vpn = import ./nixos/modules/proton-vpn.nix;
       sudo = import ./nixos/modules/sudo.nix;
       zsh = import ./nixos/modules/zsh.nix;
