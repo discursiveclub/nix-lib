@@ -139,19 +139,27 @@
         ("<XF86AudioMute>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up" "pactl set-sink-mute 0 toggle")))
+           (start-process-shell-command "volume-up"
+                                        nil
+                                        "pactl set-sink-mute 0 toggle")))
         ("<XF86AudioRaiseVolume>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up" "pactl set-sink-volume 0 +10%")))
+           (start-process-shell-command "volume-up"
+                                        nil
+                                        "pactl set-sink-volume 0 +10%")))
         ("<XF86AudioLowerVolume>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up" "pactl set-sink-volume 0 -10%")))
+           (start-process-shell-command "volume-up"
+                                        nil
+                                        "pactl set-sink-volume 0 -10%")))
         ("<XF86AudioMicMute>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up" "pactl set-source-mute 1 toggle"))))))
+           (start-process-shell-command "volume-up"
+                                        nil
+                                        "pactl set-source-mute 1 toggle"))))))
  `(exwm-input-simulation-keys
    ',(my-exwm-kbd-all
       '(("C-_" . "C-z")
