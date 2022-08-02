@@ -12,8 +12,11 @@
       profiles.default = {
         id = 0;
         settings = {
-          # Search for text when you start typing
-          "accessibility.typeaheadfind" = true;
+          # Search for text when you start typing.
+          #
+          # I like this, but it interacts badly with Google Calendar keyboard
+          # shortcuts.  I can still search quickly with '/'.
+          "accessibility.typeaheadfind" = false;
           # Supress warning when opening about:config
           "browser.aboutConfig.showWarning" = false;
           # Supress Firefox Privacy Notice on first run
