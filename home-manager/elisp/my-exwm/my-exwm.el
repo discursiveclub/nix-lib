@@ -86,10 +86,19 @@
   (desktop-save user-emacs-directory t)
   (kill-emacs 82))
 
-(defun my-exwm-run-command (command)
+(defun my-exwm-run-command-with-shell (command)
   (interactive (list (read-shell-command "$ ")))
   (my-exwm-select-or-run "Gnome-terminal" "gnome-terminal")
   (mapcar #'exwm-input--fake-key (concat "$" command "")))
+
+(defun my-exwm-run-command (command)
+  (interactive (list (read-shell-command "& ")))
+  (start-process-shell-command command nil command))
+
+(defun my-exwm-run-command-fun (command)
+  (lambda ()
+    (interactive)
+    (start-process-shell-command command nil command)))
 
 ;;;###autoload
 (defun my-exwm-enable ()
@@ -121,10 +130,8 @@
         ("s-t" . (lambda ()
                    (interactive)
                    (my-exwm-select-or-run "Gnome-terminal" "gnome-terminal")))
-        ("s-&" . (lambda (command)
-                   (interactive (list (read-shell-command "& ")))
-                   (start-process-shell-command command nil command)))
-        ("s-$" . my-exwm-run-command)
+        ("s-&" . my-exwm-run-command)
+        ("s-$" . my-exwm-run-command-with-shell)
         ;; Align workspaces more intuitively with key bindings
         ("s-1" . ,(my-exwm-make-workspace-switcher 0))
         ("s-2" . ,(my-exwm-make-workspace-switcher 1))
@@ -136,22 +143,16 @@
         ("s-8" . ,(my-exwm-make-workspace-switcher 7))
         ("s-9" . ,(my-exwm-make-workspace-switcher 8))
         ("s-0" . ,(my-exwm-make-workspace-switcher 9))
-        ("<XF86AudioMute>" .
-         (lambda ()
-           (interactive)
-           (start-process-shell-command "volume-up" "pactl set-sink-mute 0 toggle")))
+        ("<XF86AudioMute>" . ,(my-exwm-run-command-fun "speaker-mute"))
         ("<XF86AudioRaiseVolume>" .
-         (lambda ()
-           (interactive)
-           (start-process-shell-command "volume-up" "pactl set-sink-volume 0 +10%")))
+         ,(my-exwm-run-command-fun "speaker-volume-raise"))
         ("<XF86AudioLowerVolume>" .
-         (lambda ()
-           (interactive)
-           (start-process-shell-command "volume-up" "pactl set-sink-volume 0 -10%")))
-        ("<XF86AudioMicMute>" .
-         (lambda ()
-           (interactive)
-           (start-process-shell-command "volume-up" "pactl set-source-mute 1 toggle"))))))
+         ,(my-exwm-run-command-fun "speaker-volume-lower"))
+        ("<XF86AudioMicMute>" . ,(my-exwm-run-command-fun "mic-mute"))
+        ("M-<XF86AudioRaiseVolume>" .
+         ,(my-exwm-run-command-fun "mic-volume-raise"))
+        ("M-<XF86AudioLowerVolume>" .
+         ,(my-exwm-run-command-fun "mic-volume-lower")))))
  `(exwm-input-simulation-keys
    ',(my-exwm-kbd-all
       '(("C-_" . "C-z")

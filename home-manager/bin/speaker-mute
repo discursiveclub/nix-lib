@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+pactl set-sink-mute @DEFAULT_SINK@ toggle
+if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ]; then
+  notify-desktop -t 1000 -r 8322483232 "Speaker muted"
+else
+  notify-desktop -t 1000 -r 8322483232 "Speaker unmuted"
+fi

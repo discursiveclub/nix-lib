@@ -7,6 +7,48 @@
         executable = true;
         destination = "/bin/exwm";
       })
+      (pkgs.concatTextFile {
+        name = "speaker-mute";
+        files = [ ../bin/speaker-mute ];
+        executable = true;
+        destination = "/bin/speaker-mute";
+      })
+      (pkgs.concatTextFile {
+        name = "speaker-volume-lower";
+        files = [ ../bin/speaker-volume-lower ];
+        executable = true;
+        destination = "/bin/speaker-volume-lower";
+      })
+      (pkgs.concatTextFile {
+        name = "speaker-volume-raise";
+        files = [ ../bin/speaker-volume-raise ];
+        executable = true;
+        destination = "/bin/speaker-volume-raise";
+      })
+      (pkgs.concatTextFile {
+        name = "mic-mute";
+        files = [ ../bin/mic-mute ];
+        executable = true;
+        destination = "/bin/mic-mute";
+      })
+      (pkgs.concatTextFile {
+        name = "mic-status";
+        files = [ ../bin/mic-status ];
+        executable = true;
+        destination = "/bin/mic-status";
+      })
+      (pkgs.concatTextFile {
+        name = "mic-volume-lower";
+        files = [ ../bin/mic-volume-lower ];
+        executable = true;
+        destination = "/bin/mic-volume-lower";
+      })
+      (pkgs.concatTextFile {
+        name = "mic-volume-raise";
+        files = [ ../bin/mic-volume-raise ];
+        executable = true;
+        destination = "/bin/mic-volume-raise";
+      })
     ];
     sessionVariables = {
       EDITOR = "emacsclient";

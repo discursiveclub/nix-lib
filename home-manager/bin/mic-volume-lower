@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+pactl set-source-volume @DEFAULT_SOURCE@ -10%
+vol=$(pactl get-source-volume @DEFAULT_SOURCE@ |\
+        head -n1 |\
+        cut -d'/' -f2 |\
+        sed 's/ *//g')
+notify-desktop -t 1000 -r 8322483232 "Mic ${vol}"
