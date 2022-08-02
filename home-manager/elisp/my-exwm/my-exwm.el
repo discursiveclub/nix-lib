@@ -139,27 +139,27 @@
         ("<XF86AudioMute>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-mute"
-                                        nil
-                                        "pactl set-sink-mute 0 toggle")))
+           (start-process-shell-command "speaker-mute" nil "speaker-mute")))
         ("<XF86AudioRaiseVolume>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up"
-                                        nil
-                                        "pactl set-sink-volume 0 +10%")))
+           (start-process-shell-command "speaker-lower" nil "speaker-lower")))
         ("<XF86AudioLowerVolume>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-down"
-                                        nil
-                                        "pactl set-sink-volume 0 -10%")))
+           (start-process-shell-command "speaker-raise" nil "speaker-raise")))
         ("<XF86AudioMicMute>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "mic-mute"
-                                        nil
-                                        "pactl set-source-mute 1 toggle"))))))
+           (start-process-shell-command "mic-mute" nil "mic-mute")))
+        ("M-<XF86AudioRaiseVolume>" .
+         (lambda ()
+           (interactive)
+           (start-process-shell-command "mic-lower" nil "mic-lower")))
+        ("M-<XF86AudioLowerVolume>" .
+         (lambda ()
+           (interactive)
+           (start-process-shell-command "mic-raise" nil "mic-raise"))))))
  `(exwm-input-simulation-keys
    ',(my-exwm-kbd-all
       '(("C-_" . "C-z")

@@ -8,16 +8,16 @@
         destination = "/bin/exwm";
       })
       (pkgs.concatTextFile {
-        name = "speaker-up";
-        files = [ ../bin/speaker-up ];
+        name = "speaker-raise";
+        files = [ ../bin/speaker-raise ];
         executable = true;
-        destination = "/bin/speaker-up";
+        destination = "/bin/speaker-raise";
       })
       (pkgs.concatTextFile {
-        name = "speaker-down";
-        files = [ ../bin/speaker-down ];
+        name = "speaker-lower";
+        files = [ ../bin/speaker-lower ];
         executable = true;
-        destination = "/bin/speaker-down";
+        destination = "/bin/speaker-lower";
       })
       (pkgs.concatTextFile {
         name = "speaker-mute";
@@ -26,16 +26,16 @@
         destination = "/bin/speaker-mute";
       })
       (pkgs.concatTextFile {
-        name = "mic-up";
-        files = [ ../bin/mic-up ];
+        name = "mic-raise";
+        files = [ ../bin/mic-raise ];
         executable = true;
-        destination = "/bin/mic-up";
+        destination = "/bin/mic-raise";
       })
       (pkgs.concatTextFile {
-        name = "mic-down";
-        files = [ ../bin/mic-down ];
+        name = "mic-lower";
+        files = [ ../bin/mic-lower ];
         executable = true;
-        destination = "/bin/mic-down";
+        destination = "/bin/mic-lower";
       })
       (pkgs.concatTextFile {
         name = "mic-mute";
