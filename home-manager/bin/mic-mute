@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+pactl set-source-mute @DEFAULT_SOURCE@ toggle
+if [ "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: yes" ]; then
+  notify-desktop -t 1000 -r 8322483232 "Mic muted"
+else
+  notify-desktop -t 1000 -r 8322483232 "Mic unmuted"
+fi
