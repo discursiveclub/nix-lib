@@ -13,6 +13,18 @@
         executable = true;
         destination = "/bin/volume-up";
       })
+      (pkgs.concatTextFile {
+        name = "volume-down";
+        files = [ ../bin/volume-down ];
+        executable = true;
+        destination = "/bin/volume-down";
+      })
+      (pkgs.concatTextFile {
+        name = "volume-mute";
+        files = [ ../bin/volume-mute ];
+        executable = true;
+        destination = "/bin/volume-mute";
+      })
     ];
     sessionVariables = {
       EDITOR = "emacsclient";
