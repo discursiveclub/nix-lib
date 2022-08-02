@@ -139,7 +139,7 @@
         ("<XF86AudioMute>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up"
+           (start-process-shell-command "volume-mute"
                                         nil
                                         "pactl set-sink-mute 0 toggle")))
         ("<XF86AudioRaiseVolume>" .
@@ -151,13 +151,13 @@
         ("<XF86AudioLowerVolume>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up"
+           (start-process-shell-command "volume-down"
                                         nil
                                         "pactl set-sink-volume 0 -10%")))
         ("<XF86AudioMicMute>" .
          (lambda ()
            (interactive)
-           (start-process-shell-command "volume-up"
+           (start-process-shell-command "mic-mute"
                                         nil
                                         "pactl set-source-mute 1 toggle"))))))
  `(exwm-input-simulation-keys

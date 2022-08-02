@@ -7,6 +7,12 @@
         executable = true;
         destination = "/bin/exwm";
       })
+      (pkgs.concatTextFile {
+        name = "volume-up";
+        files = [ ../bin/volume-up ];
+        executable = true;
+        destination = "/bin/volume-up";
+      })
     ];
     sessionVariables = {
       EDITOR = "emacsclient";

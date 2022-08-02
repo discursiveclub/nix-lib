@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+sink=$(pactl get-default-sink)
+pactl set-sink-volume ${sink} +10%
+vol=$(pactl get-sink-volume ${sink} | head -n1 |cut -d'/' -f2)
+notify-desktop -t 1000 -r 8322483232 "Volume${vol}"
