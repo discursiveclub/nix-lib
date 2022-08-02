@@ -8,22 +8,40 @@
         destination = "/bin/exwm";
       })
       (pkgs.concatTextFile {
-        name = "volume-up";
-        files = [ ../bin/volume-up ];
+        name = "speaker-up";
+        files = [ ../bin/speaker-up ];
         executable = true;
-        destination = "/bin/volume-up";
+        destination = "/bin/speaker-up";
       })
       (pkgs.concatTextFile {
-        name = "volume-down";
-        files = [ ../bin/volume-down ];
+        name = "speaker-down";
+        files = [ ../bin/speaker-down ];
         executable = true;
-        destination = "/bin/volume-down";
+        destination = "/bin/speaker-down";
       })
       (pkgs.concatTextFile {
-        name = "volume-mute";
-        files = [ ../bin/volume-mute ];
+        name = "speaker-mute";
+        files = [ ../bin/speaker-mute ];
         executable = true;
-        destination = "/bin/volume-mute";
+        destination = "/bin/speaker-mute";
+      })
+      (pkgs.concatTextFile {
+        name = "mic-up";
+        files = [ ../bin/mic-up ];
+        executable = true;
+        destination = "/bin/mic-up";
+      })
+      (pkgs.concatTextFile {
+        name = "mic-down";
+        files = [ ../bin/mic-down ];
+        executable = true;
+        destination = "/bin/mic-down";
+      })
+      (pkgs.concatTextFile {
+        name = "mic-mute";
+        files = [ ../bin/mic-mute ];
+        executable = true;
+        destination = "/bin/mic-mute";
       })
     ];
     sessionVariables = {
