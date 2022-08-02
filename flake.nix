@@ -28,6 +28,7 @@
       git = importHmModule ./home-manager/modules/git.nix;
       gnome-terminal = importHmModule ./home-manager/modules/gnome-terminal.nix;
       keychain = importHmModule ./home-manager/modules/keychain.nix;
+      notifications = importHmModule ./home-manager/modules/notifications.nix;
       proton-vpn = importHmModule ./home-manager/modules/proton-vpn.nix;
       tmux = importHmModule ./home-manager/modules/tmux.nix;
       xbanish = importHmModule ./home-manager/modules/xbanish.nix;
