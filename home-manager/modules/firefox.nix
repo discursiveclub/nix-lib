@@ -28,7 +28,7 @@
           "browser.startup.page" = 3;
           ## Tabs
           # Confirm before closing multiple tabs
-          "browser.tabs.warnOnClose" = true;
+          "browser.tabs.warnOnClose" = false;
           # Confirm before quitting with Ctrl+Q
           "browser.warnOnQuitShortcut" = false;
 
@@ -115,9 +115,9 @@
           ## History
           # Firefox will use custom settings for history
           "privacy.history.custom" = true;
-          # Clear history when Firefox closes
-          "privacy.sanitize.pending" = "[{\"id\":\"shutdown\",\"itemsToClear\":[\"cache\",\"cookies\",\"offlineApps\"],\"options\":{}}]";
-          "privacy.sanitize.sanitizeOnShutdown" = true;
+          # Must preserve history to restore tabs on startup
+          "privacy.sanitize.pending" = "[{\"id\":\"newtab-container\",\"itemsToClear\":[],\"options\":{}}]";
+          "privacy.sanitize.sanitizeOnShutdown" = false;
 
           ### Permissions
           # Location
