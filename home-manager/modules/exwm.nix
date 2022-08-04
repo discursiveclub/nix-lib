@@ -74,6 +74,6 @@
   };
   xsession = {
     enable = true;
-    initExtra = lib.mkAfter "(exwm; cinnamon-session-quit --no-prompt) &";
+    initExtra = lib.mkAfter "[ ! -f $\{HOME}/.noexwm ] && (exwm; cinnamon-session-quit --no-prompt) &";
   };
 }
