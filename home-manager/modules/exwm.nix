@@ -44,6 +44,18 @@
         destination = "/bin/speaker-mute";
       })
       (pkgs.concatTextFile {
+        name = "speaker-status";
+        files = [ ../bin/speaker-status ];
+        executable = true;
+        destination = "/bin/speaker-status";
+      })
+      (pkgs.concatTextFile {
+        name = "speaker-status-notify";
+        files = [ ../bin/speaker-status-notify ];
+        executable = true;
+        destination = "/bin/speaker-status-notify";
+      })
+      (pkgs.concatTextFile {
         name = "speaker-volume-lower";
         files = [ ../bin/speaker-volume-lower ];
         executable = true;
