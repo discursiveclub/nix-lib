@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+pactl set-sink-mute @DEFAULT_SINK@ toggle
+vol=$(pactl get-sink-volume @DEFAULT_SINK@ |\
+        head -n1 |\
+        cut -d'/' -f2 |\
+        sed 's/ *//g')
+if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ]; then
+  notify-desktop -t 1000 -r 8322483232 " ${vol}"
+else
+  notify-desktop -t 1000 -r 8322483232 " ${vol}"
+fi
