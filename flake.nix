@@ -1,20 +1,33 @@
 {
-  outputs = { self, ... }: {
+  inputs = {
+    nixpkgs-unstable.url = "github:nixos/nixpkgs";
+  };
+  outputs = { self, nixpkgs-unstable, ... }: let
+    importWithUnstable = module:
+      { pkgs, ...}@args:
+      import module
+        (args // {
+          unstable = (import nixpkgs-unstable {
+            system = pkgs.system;
+            config.allowUnfree = true;
+          });
+        });
+  in {
     homeManagerModules = {
       emacs = {
-        init = import ./home-manager/modules/emacs/init.nix;
-        all-the-icons = import ./home-manager/modules/emacs/all-the-icons.nix;
+        init = importWithUnstable ./home-manager/modules/emacs/init.nix;
+        all-the-icons = importWithUnstable ./home-manager/modules/emacs/all-the-icons.nix;
       };
-      exwm = import ./home-manager/modules/exwm.nix;
-      firefox = import ./home-manager/modules/firefox.nix;
-      git = import ./home-manager/modules/git.nix;
-      gnome-terminal = import ./home-manager/modules/gnome-terminal.nix;
-      keychain = import ./home-manager/modules/keychain.nix;
-      notifications = import ./home-manager/modules/notifications.nix;
-      proton-vpn = import ./home-manager/modules/proton-vpn.nix;
-      tmux = import ./home-manager/modules/tmux.nix;
-      xbanish = import ./home-manager/modules/xbanish.nix;
-      zsh = import ./home-manager/modules/zsh.nix;
+      exwm = importWithUnstable ./home-manager/modules/exwm.nix;
+      firefox = importWithUnstable ./home-manager/modules/firefox.nix;
+      git = importWithUnstable ./home-manager/modules/git.nix;
+      gnome-terminal = importWithUnstable ./home-manager/modules/gnome-terminal.nix;
+      keychain = importWithUnstable ./home-manager/modules/keychain.nix;
+      notifications = importWithUnstable ./home-manager/modules/notifications.nix;
+      proton-vpn = importWithUnstable ./home-manager/modules/proton-vpn.nix;
+      tmux = importWithUnstable ./home-manager/modules/tmux.nix;
+      xbanish = importWithUnstable ./home-manager/modules/xbanish.nix;
+      zsh = importWithUnstable ./home-manager/modules/zsh.nix;
     };
     lib = let
       elispBuild = pkgs: epkgs: { packageRequires, pname, src, version }: let
@@ -31,10 +44,10 @@
       inherit elispBuild;
     };
     nixosModules = {
-      git = import ./nixos/modules/git.nix;
-      proton-vpn = import ./nixos/modules/proton-vpn.nix;
-      sudo = import ./nixos/modules/sudo.nix;
-      zsh = import ./nixos/modules/zsh.nix;
+      git = importWithUnstable ./nixos/modules/git.nix;
+      proton-vpn = importWithUnstable ./nixos/modules/proton-vpn.nix;
+      sudo = importWithUnstable ./nixos/modules/sudo.nix;
+      zsh = importWithUnstable ./nixos/modules/zsh.nix;
     };
   };
 }
