@@ -1,6 +1,5 @@
 {
-  inputs.unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-  outputs = { self, unstable, ... }: {
+  outputs = { self, ... }: {
     homeManagerModules = {
       emacs = {
         init = import ./home-manager/modules/emacs/init.nix;
