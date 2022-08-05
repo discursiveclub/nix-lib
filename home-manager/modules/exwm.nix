@@ -1,4 +1,4 @@
-{ elispBuild, lib, pkgs, ... }: {
+{ lib, nix-lib, pkgs, ... }: {
   home = {
     packages = [
       (pkgs.concatTextFile {
@@ -58,7 +58,7 @@
     emacs = {
       enable = true;
       extraPackages = epkgs: let
-        my-exwm = elispBuild epkgs {
+        my-exwm = nix-lib.lib.elispBuild pkgs epkgs {
           pname = "my-exwm";
           version = "0.0.0";
           src = ../elisp/my-exwm;

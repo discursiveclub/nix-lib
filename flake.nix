@@ -1,8 +1,24 @@
 {
   inputs.unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-  outputs = { self, unstable, ... }: let
-    importHmModule = module: { pkgs, ... }@args: let
-      elispBuild = epkgs: { packageRequires, pname, src, version }: let
+  outputs = { self, unstable, ... }: {
+    homeManagerModules = {
+      emacs = {
+        init = import ./home-manager/modules/emacs/init.nix;
+        all-the-icons = import ./home-manager/modules/emacs/all-the-icons.nix;
+      };
+      exwm = import ./home-manager/modules/exwm.nix;
+      firefox = import ./home-manager/modules/firefox.nix;
+      git = import ./home-manager/modules/git.nix;
+      gnome-terminal = import ./home-manager/modules/gnome-terminal.nix;
+      keychain = import ./home-manager/modules/keychain.nix;
+      notifications = import ./home-manager/modules/notifications.nix;
+      proton-vpn = import ./home-manager/modules/proton-vpn.nix;
+      tmux = import ./home-manager/modules/tmux.nix;
+      xbanish = import ./home-manager/modules/xbanish.nix;
+      zsh = import ./home-manager/modules/zsh.nix;
+    };
+    lib = let
+      elispBuild = pkgs: epkgs: { packageRequires, pname, src, version }: let
         versioned-name = "${pname}-${version}";
       in
         epkgs.elpaBuild ({ inherit packageRequires pname version; } // {
@@ -12,32 +28,8 @@
             tar cf $out ${versioned-name}
           '';
         });
-    in
-      import module (args // {
-        inherit elispBuild;
-        unstable = unstable.legacyPackages."x86_64-linux";
-      });
-  in {
-    homeManagerModules = {
-      emacs = {
-        init = importHmModule ./home-manager/modules/emacs/init.nix;
-        all-the-icons = importHmModule ./home-manager/modules/emacs/all-the-icons.nix;
-      };
-      exwm = importHmModule ./home-manager/modules/exwm.nix;
-      firefox = importHmModule ./home-manager/modules/firefox.nix;
-      git = importHmModule ./home-manager/modules/git.nix;
-      gnome-terminal = importHmModule ./home-manager/modules/gnome-terminal.nix;
-      keychain = importHmModule ./home-manager/modules/keychain.nix;
-      notifications = importHmModule ./home-manager/modules/notifications.nix;
-      proton-vpn = importHmModule ./home-manager/modules/proton-vpn.nix;
-      tmux = importHmModule ./home-manager/modules/tmux.nix;
-      xbanish = importHmModule ./home-manager/modules/xbanish.nix;
-      zsh = importHmModule ./home-manager/modules/zsh.nix;
-    };
-    lib = {
-      importHmConfig = { module, extraArgs }:
-        { pkgs, ... }@args:
-        import module (args // extraArgs);
+    in {
+      inherit elispBuild;
     };
     nixosModules = {
       git = import ./nixos/modules/git.nix;
