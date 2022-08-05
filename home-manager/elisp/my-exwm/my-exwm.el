@@ -143,17 +143,21 @@
         ("s-8" . ,(my-exwm-make-workspace-switcher 7))
         ("s-9" . ,(my-exwm-make-workspace-switcher 8))
         ("s-0" . ,(my-exwm-make-workspace-switcher 9))
-        ("<XF86AudioMute>" . ,(my-exwm-run-command-fun "speaker-mute"))
-        ("<XF86AudioRaiseVolume>" .
-         ,(my-exwm-run-command-fun "speaker-volume-raise"))
         ("<XF86AudioLowerVolume>" .
          ,(my-exwm-run-command-fun "speaker-volume-lower"))
         ("<XF86AudioMicMute>" . ,(my-exwm-run-command-fun "mic-mute"))
+        ("<XF86AudioMute>" . ,(my-exwm-run-command-fun "speaker-mute"))
+        ("<XF86AudioRaiseVolume>" .
+         ,(my-exwm-run-command-fun "speaker-volume-raise"))
+        ("<XF86MonBrightnessDown>" .
+         ,(my-exwm-run-command-fun "brightness-down"))
+        ("<XF86MonBrightnessUp>" .
+         ,(my-exwm-run-command-fun "brightness-up"))
+        ("M-<XF86AudioLowerVolume>" .
+         ,(my-exwm-run-command-fun "mic-volume-lower"))
         ("M-<XF86AudioMute>" . ,(my-exwm-run-command-fun "mic-mute"))
         ("M-<XF86AudioRaiseVolume>" .
-         ,(my-exwm-run-command-fun "mic-volume-raise"))
-        ("M-<XF86AudioLowerVolume>" .
-         ,(my-exwm-run-command-fun "mic-volume-lower")))))
+         ,(my-exwm-run-command-fun "mic-volume-raise")))))
  `(exwm-input-simulation-keys
    ',(my-exwm-kbd-all
       '(("C-_" . "C-z")

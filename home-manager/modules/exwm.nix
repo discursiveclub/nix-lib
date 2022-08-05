@@ -2,6 +2,30 @@
   home = {
     packages = [
       (pkgs.concatTextFile {
+        name = "brightness-down";
+        files = [ ../bin/brightness-down ];
+        executable = true;
+        destination = "/bin/brightness-down";
+      })
+      (pkgs.concatTextFile {
+        name = "brightness-status";
+        files = [ ../bin/brightness-status ];
+        executable = true;
+        destination = "/bin/brightness-status";
+      })
+      (pkgs.concatTextFile {
+        name = "brightness-status-notify";
+        files = [ ../bin/brightness-status-notify ];
+        executable = true;
+        destination = "/bin/brightness-status-notify";
+      })
+      (pkgs.concatTextFile {
+        name = "brightness-up";
+        files = [ ../bin/brightness-up ];
+        executable = true;
+        destination = "/bin/brightness-up";
+      })
+      (pkgs.concatTextFile {
         name = "exwm";
         files = [ ../bin/exwm ];
         executable = true;
