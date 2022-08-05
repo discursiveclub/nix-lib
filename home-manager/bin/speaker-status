@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-pactl set-sink-mute @DEFAULT_SINK@ toggle
 vol=$(pactl get-sink-volume @DEFAULT_SINK@ |\
         head -n1 |\
         cut -d'/' -f2 |\
