@@ -4,7 +4,7 @@ vol=$(pactl get-source-volume @DEFAULT_SOURCE@ |\
         cut -d'/' -f2 |\
         sed 's/ *//g')
 if [ "$(pactl get-source-mute @DEFAULT_SOURCE@)" = "Mute: yes" ]; then
-  echo " ${vol}"
+  echo " ${vol}"
 else
-  echo " ${vol}"
+  echo " ${vol}"
 fi
