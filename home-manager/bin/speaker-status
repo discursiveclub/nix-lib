@@ -4,7 +4,7 @@ vol=$(pactl get-sink-volume @DEFAULT_SINK@ |\
         cut -d'/' -f2 |\
         sed 's/ *//g')
 if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ]; then
-  echo "婢 ${vol}"
+  echo " ${vol}"
 else
-  echo "墳 ${vol}"
+  echo " ${vol}"
 fi
