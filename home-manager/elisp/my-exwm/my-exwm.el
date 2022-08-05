@@ -149,6 +149,7 @@
         ("<XF86AudioLowerVolume>" .
          ,(my-exwm-run-command-fun "speaker-volume-lower"))
         ("<XF86AudioMicMute>" . ,(my-exwm-run-command-fun "mic-mute"))
+        ("M-<XF86AudioMute>" . ,(my-exwm-run-command-fun "mic-mute"))
         ("M-<XF86AudioRaiseVolume>" .
          ,(my-exwm-run-command-fun "mic-volume-raise"))
         ("M-<XF86AudioLowerVolume>" .
