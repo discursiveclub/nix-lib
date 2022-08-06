@@ -53,10 +53,14 @@
     (or (my-exwm-cycle-class* target-class-name buffers prev-buffer)
         (my-exwm-cycle-class* target-class-name buffers nil))))
 
+(defun my-exwm-start-disowned-process (command)
+  (start-process command nil shell-file-name "-i" "-c"
+                 (concat "nohup " command "</dev/null >&/dev/null &!")))
+
 (defun my-exwm-select-or-run (target-class-name command)
   (interactive)
   (when (not (my-exwm-cycle-class target-class-name (current-buffer)))
-    (start-process-shell-command command nil command)))
+    (my-exwm-start-disowned-process command)))
 
 (defun my-exwm-kbd-key (m)
   (map-apply (lambda (k v) (cons (kbd k) v)) m))
@@ -93,12 +97,12 @@
 
 (defun my-exwm-run-command (command)
   (interactive (list (read-shell-command "& ")))
-  (start-process-shell-command command nil command))
+  (my-exwm-start-disowned-process command))
 
 (defun my-exwm-run-command-fun (command)
   (lambda ()
     (interactive)
-    (start-process-shell-command command nil command)))
+    (my-exwm-start-disowned-process command)))
 
 ;;;###autoload
 (defun my-exwm-enable ()
