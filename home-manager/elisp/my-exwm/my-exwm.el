@@ -54,7 +54,7 @@
         (my-exwm-cycle-class* target-class-name buffers nil))))
 
 (defun my-exwm-start-disowned-process (command)
-  (start-process command nil shell-file-name "-i" "-c"
+  (start-process command nil shell-file-name "-m" "-c"
                  (concat "nohup " command "</dev/null >&/dev/null &!")))
 
 (defun my-exwm-select-or-run (target-class-name command)
