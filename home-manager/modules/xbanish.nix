@@ -9,7 +9,7 @@
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.xbanish}/bin/xbanish -m sw -i control -i mod4 -t 10";
+      ExecStart = "${pkgs.xbanish}/bin/xbanish -m ne -i control -i mod4 -t 10";
       Restart = "always";
     };
   };
