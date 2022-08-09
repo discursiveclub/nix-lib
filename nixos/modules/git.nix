@@ -1,10 +1,9 @@
 { ... }: {
   programs.git = {
-    enable = true;
     config = {
-      init = {
-        defaultBranch = "main";
-      };
+      init.defaultBranch = "main";
+      pull.rebase = false;
     };
+    enable = true;
   };
 }
