@@ -45,6 +45,7 @@
     };
     nixosModules = {
       git = importWithUnstable ./nixos/modules/git.nix;
+      nix = importWithUnstable ./nixos/modules/nix.nix;
       proton-vpn = importWithUnstable ./nixos/modules/proton-vpn.nix;
       sudo = importWithUnstable ./nixos/modules/sudo.nix;
       zsh = importWithUnstable ./nixos/modules/zsh.nix;
