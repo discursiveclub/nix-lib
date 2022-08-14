@@ -25,6 +25,7 @@
       keychain = importWithUnstable ./home-manager/modules/keychain.nix;
       notifications = importWithUnstable ./home-manager/modules/notifications.nix;
       proton-vpn = importWithUnstable ./home-manager/modules/proton-vpn.nix;
+      starship = importWithUnstable ./home-manager/modules/starship.nix;
       tmux = importWithUnstable ./home-manager/modules/tmux.nix;
       xbanish = importWithUnstable ./home-manager/modules/xbanish.nix;
       zsh = importWithUnstable ./home-manager/modules/zsh.nix;
@@ -50,7 +51,6 @@
       proton-vpn = importWithUnstable ./nixos/modules/proton-vpn.nix;
       root = importWithUnstable ./nixos/modules/root.nix;
       ssmtp = importWithUnstable ./nixos/modules/ssmtp.nix;
-      starship = importWithUnstable ./nixos/modules/starship.nix;
       sudo = importWithUnstable ./nixos/modules/sudo.nix;
       zsh = importWithUnstable ./nixos/modules/zsh.nix;
     };
