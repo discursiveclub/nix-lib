@@ -48,6 +48,7 @@
       nix = importWithUnstable ./nixos/modules/nix.nix;
       nix-21-11 = importWithUnstable ./nixos/modules/nix-21-11.nix;
       proton-vpn = importWithUnstable ./nixos/modules/proton-vpn.nix;
+      starship = importWithUnstable ./nixos/modules/starship.nix;
       sudo = importWithUnstable ./nixos/modules/sudo.nix;
       zsh = importWithUnstable ./nixos/modules/zsh.nix;
     };
