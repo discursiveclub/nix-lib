@@ -1,4 +1,4 @@
-{ authUser, domain, enable, root }:
+{ authUser, domain, enable, root, ... }:
 { ... } : {
   services.ssmtp = {
     authUser = authUser;
