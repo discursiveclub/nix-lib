@@ -45,6 +45,7 @@
       inherit elispBuild;
     };
     nixosModules = {
+      avahi = importWithUnstable ./nixos/modules/avahi.nix;
       git = importWithUnstable ./nixos/modules/git.nix;
       nix = importWithUnstable ./nixos/modules/nix.nix;
       nix-21-11 = importWithUnstable ./nixos/modules/nix-21-11.nix;
