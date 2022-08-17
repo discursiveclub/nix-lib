@@ -53,6 +53,7 @@
       root = importWithUnstable ./nixos/modules/root.nix;
       ssmtp = importWithUnstable ./nixos/modules/ssmtp.nix;
       sudo = importWithUnstable ./nixos/modules/sudo.nix;
+      vaultwarden = importWithUnstable ./nixos/modules/vaultwarden.nix;
       zsh = importWithUnstable ./nixos/modules/zsh.nix;
     };
   };
