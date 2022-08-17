@@ -45,6 +45,7 @@
       inherit elispBuild;
     };
     nixosModules = {
+      auto-upgrade = importWithUnstable ./nixos/modules/auto-upgrade.nix;
       avahi = importWithUnstable ./nixos/modules/avahi.nix;
       git = importWithUnstable ./nixos/modules/git.nix;
       nix = importWithUnstable ./nixos/modules/nix.nix;
