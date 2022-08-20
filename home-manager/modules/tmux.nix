@@ -89,12 +89,10 @@
         bind-key -N "Select previous window (EXWM: C-S-Tab)" M-b previous-window
         bind-key -N "Select next window (EXWM: C-Tab)" M-f next-window
 
-        unbind-key -T prefix Space
-        unbind-key -T prefix M-1
-        unbind-key -T prefix M-2
-        unbind-key -T prefix M-3
-        unbind-key -T prefix M-4
-        unbind-key -T prefix M-5
+        unbind-key -T prefix "'"
+        unbind-key -T prefix %
+        unbind-key -T prefix &
+        unbind-key -T prefix '"'
         unbind-key -T prefix 0
         unbind-key -T prefix 1
         unbind-key -T prefix 2
@@ -105,28 +103,31 @@
         unbind-key -T prefix 7
         unbind-key -T prefix 8
         unbind-key -T prefix 9
-        unbind-key -T prefix l
-        unbind-key -T prefix Down
-        unbind-key -T prefix Left
-        unbind-key -T prefix Right
-        unbind-key -T prefix Up
         unbind-key -T prefix C-Down
         unbind-key -T prefix C-Left
         unbind-key -T prefix C-Right
         unbind-key -T prefix C-Up
-        unbind-key -T prefix S-Down
-        unbind-key -T prefix S-Left
-        unbind-key -T prefix S-Right
-        unbind-key -T prefix S-Up
+        unbind-key -T prefix Down
+        unbind-key -T prefix Left
+        unbind-key -T prefix M-1
+        unbind-key -T prefix M-2
+        unbind-key -T prefix M-3
+        unbind-key -T prefix M-4
+        unbind-key -T prefix M-5
         unbind-key -T prefix M-Down
         unbind-key -T prefix M-Left
         unbind-key -T prefix M-Right
         unbind-key -T prefix M-Up
-        unbind-key -T prefix '"'
-        unbind-key -T prefix %
-        unbind-key -T prefix "'"
+        unbind-key -T prefix Right
+        unbind-key -T prefix S-Down
+        unbind-key -T prefix S-Left
+        unbind-key -T prefix S-Right
+        unbind-key -T prefix S-Up
+        unbind-key -T prefix Space
+        unbind-key -T prefix Up
+        unbind-key -T prefix l
+        unbind-key -T prefix o
         unbind-key -T prefix x
-        unbind-key -T prefix &
       '';
       keyMode = "emacs";
       plugins = with pkgs; [
