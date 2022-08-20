@@ -184,7 +184,7 @@
         ("M-f" . "C-<right>")
         ("M-v" . "<prior>")
         ("M-w" . "C-c")
-        ("s-w" . "C-w"))))
+        ("s-k" . "C-w"))))
  '(exwm-layout-show-all-buffers t)
  '(exwm-manage-configurations
    `(((string-equal exwm-class-name "Gnome-terminal")
@@ -196,7 +196,7 @@
           ("C-y" . "C-S-v")
           ("M-<iso-lefttab>" . "C-z C-M-B")
           ("M-<tab>" . "C-z C-M-F")
-          ("s-w" . "C-z &"))))))
+          ("s-k" . "C-z &"))))))
  '(exwm-replace t)
  '(exwm-update-class-hook '(my-exwm-rename-buffer))
  '(exwm-workspace-index-map 'my-exwm-workspace-name)
