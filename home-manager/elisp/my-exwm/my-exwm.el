@@ -196,7 +196,7 @@
           ("C-y" . "C-S-v")
           ("M-<iso-lefttab>" . "C-z C-M-B")
           ("M-<tab>" . "C-z C-M-F")
-          ("s-k" . "C-z &"))))))
+          ("s-k" . "C-z K"))))))
  '(exwm-replace t)
  '(exwm-update-class-hook '(my-exwm-rename-buffer))
  '(exwm-workspace-index-map 'my-exwm-workspace-name)

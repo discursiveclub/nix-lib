@@ -61,7 +61,7 @@
         bind-key -n DoubleClick1Pane select-pane -t = \; if-shell -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" "send -M" "copy-mode -H ; send -X select-word ; run -d0.3 ; send -X copy-pipe-and-cancel"
         bind-key -N "Resize the pane right by 1" -r F resize-pane -R
         bind-key -N "Layout panes horizontally with main pane" H select-layout main-horizontal
-        bind-key -N "Kill current window (EXWM: s-w)" K confirm-before -p "kill-window #W? (y/n)" kill-window
+        bind-key -N "Kill current window (EXWM: s-k)" K kill-window
         bind-key -N "Resize the pane down by 1" -r N resize-pane -D
         bind-key -N "Resize the pane up by 1" -r P resize-pane -U
         bind-key -N "Reload ~/.config/tmux/tmux.conf" R run-shell "tmux source-file ~/.config/tmux/tmux.conf > /dev/null; tmux display-message \"Sourced ~/.config/tmux/tmux.conf!\""
