@@ -52,7 +52,6 @@
       nix-21-11 = importWithUnstable ./nixos/modules/nix-21-11.nix;
       proton-vpn = importWithUnstable ./nixos/modules/proton-vpn.nix;
       root = importWithUnstable ./nixos/modules/root.nix;
-      ssmtp = importWithUnstable ./nixos/modules/ssmtp.nix;
       sudo = importWithUnstable ./nixos/modules/sudo.nix;
       tt-rss = importWithUnstable ./nixos/modules/tt-rss.nix;
       vaultwarden = importWithUnstable ./nixos/modules/vaultwarden.nix;
