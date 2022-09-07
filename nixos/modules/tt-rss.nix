@@ -41,7 +41,4 @@
       # selfUrlPath = "https://www.example.com";
     };
   };
-  users.users.tt_rss = {
-    extraGroups = [ "ssmtp" ];
-  };
 }
