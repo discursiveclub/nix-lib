@@ -29,7 +29,7 @@
 (defun my-switch-buffer (&optional prefix)
   (interactive "p")
   (if (eq prefix 4)
-      (buffer-menu)
+      (ibuffer)
     (ido-switch-buffer)))
 
 ;;; Configuration theme:
