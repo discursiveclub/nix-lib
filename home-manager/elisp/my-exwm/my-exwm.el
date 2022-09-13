@@ -162,7 +162,8 @@
         ("M-<XF86AudioMute>" . ,(my-exwm-run-command-fun "mic-mute"))
         ("M-<XF86AudioRaiseVolume>" .
          ,(my-exwm-run-command-fun "mic-volume-raise"))
-        ("<print>" . ,(my-exwm-run-command-fun "flameshot gui")))))
+        ("<print>" . ,(my-exwm-run-command-fun "flameshot gui"))
+        ("M-<print>" . ,(my-exwm-run-command-fun "flameshot launcher")))))
  `(exwm-input-simulation-keys
    ',(my-exwm-kbd-all
       '(("C-_" . "C-z")
