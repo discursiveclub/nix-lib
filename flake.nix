@@ -1,8 +1,10 @@
 {
   inputs = {
+    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
   };
-  outputs = { self, nixpkgs-unstable, ... }: let
+  outputs = { self, flake-utils, nixpkgs, nixpkgs-unstable, ... }: let
     importWithUnstable = module:
       { pkgs, ...}@args:
       import module
@@ -43,6 +45,9 @@
         });
     in {
       inherit elispBuild;
+    };
+    packages.x86_64-linux.brightnessctl = import ./pkgs/brightnessctl.nix {
+      pkgs = import nixpkgs { system = "x86_64-linux"; };
     };
     nixosModules = {
       auto-upgrade = importWithUnstable ./nixos/modules/auto-upgrade.nix;

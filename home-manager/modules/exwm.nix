@@ -8,10 +8,6 @@
         destination = "/bin/${f}";
       })
         [
-          "brightness-down"
-          "brightness-status"
-          "brightness-status-notify"
-          "brightness-up"
           "exwm"
           "mic-mute"
           "mic-status"
@@ -23,6 +19,8 @@
           "speaker-status-notify"
           "speaker-volume-lower"
           "speaker-volume-raise"
+        ] ++ [
+          nix-lib.packages.x86_64-linux.brightnessctl
         ];
     sessionVariables = {
       EDITOR = "emacsclient";
