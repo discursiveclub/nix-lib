@@ -23,7 +23,8 @@
           "speaker-status-notify"
           "speaker-volume-lower"
           "speaker-volume-raise"
-        ];
+        ] ++
+      [ pkgs.flameshot ];
     sessionVariables = {
       EDITOR = "emacsclient";
     };
