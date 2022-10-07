@@ -1,6 +1,6 @@
-{ ... }: {
+{ lib, ... }: {
   # generate a deploy key:
-  #  sudo ssh-keygen -t ed25519 -f /etc/nixos/deploy-key -N ""
+  #  sudo ssh-keygen -t ed25519 -f /etc/nixos/deploy-key -N "" -C "`hostname` deploy key"
   # then add the public key as a deploy key on the appropriate github repository
   programs.ssh.extraConfig = ''
     Host deploy.github.com
@@ -8,11 +8,11 @@
       IdentityFile "/etc/nixos/deploy-key"
   '';
   system.autoUpgrade = {
-    allowReboot = true;
+    allowReboot = lib.mkDefault true;
     enable = true;
     flags = [
       # must be set in system config
-      # "--update-input" "example"
+      # "--update-input" "nixpkgs"
       "--no-write-lock-file"
     ];
     # must be set in system config
