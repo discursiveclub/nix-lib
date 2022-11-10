@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs-unstable.url = "github:nixos/nixpkgs";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
   outputs = { self, nixpkgs-unstable, ... }: let
     importWithUnstable = module:
