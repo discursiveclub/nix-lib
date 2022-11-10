@@ -49,7 +49,6 @@
       avahi = importWithUnstable ./nixos/modules/avahi.nix;
       git = importWithUnstable ./nixos/modules/git.nix;
       nix = importWithUnstable ./nixos/modules/nix.nix;
-      nix-21-11 = importWithUnstable ./nixos/modules/nix-21-11.nix;
       proton-vpn = importWithUnstable ./nixos/modules/proton-vpn.nix;
       root = importWithUnstable ./nixos/modules/root.nix;
       sudo = importWithUnstable ./nixos/modules/sudo.nix;
