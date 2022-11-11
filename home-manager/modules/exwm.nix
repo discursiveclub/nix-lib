@@ -29,24 +29,7 @@
       EDITOR = "emacsclient";
     };
   };
-  programs = {
-    emacs = {
-      enable = true;
-      extraPackages = epkgs: let
-        my-exwm = nix-lib.lib.elispBuild pkgs epkgs {
-          pname = "my-exwm";
-          version = "0.0.0";
-          src = ../elisp/my-exwm;
-          packageRequires = with epkgs; [
-            exwm
-            exwm-mff
-            exwm-modeline
-          ];
-        };
-      in
-        [ my-exwm ];
-    };
-  };
+  imports = [ ./emacs/my-exwm.nix ];
   xsession = {
     enable = true;
     initExtra = lib.mkAfter "[ ! -f $\{HOME}/.noexwm ] && (exwm; cinnamon-session-quit --no-prompt) &";

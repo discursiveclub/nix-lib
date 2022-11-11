@@ -1,8 +1,10 @@
 ;;; my.el --- General Emacs configuration and utilities -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022 Sophist
+;; Copyright (C) 2022 sophist
 
 ;; Author: sophist <sophist@discursive.club>
+;; Version: 0.0.0
+;; Package-Requires: ((emacs "28.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -70,3 +72,4 @@
 (provide-theme 'my)
 
 (provide 'my)
+;;; my.el ends here

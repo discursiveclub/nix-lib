@@ -30,19 +30,19 @@
       xbanish = importWithUnstable ./home-manager/modules/xbanish.nix;
       zsh = importWithUnstable ./home-manager/modules/zsh.nix;
     };
-    lib = let
-      elispBuild = pkgs: epkgs: { packageRequires, pname, src, version }: let
-        versioned-name = "${pname}-${version}";
-      in
-        epkgs.elpaBuild ({ inherit packageRequires pname version; } // {
-          src = pkgs.runCommand "${versioned-name}.tar" {} ''
-            mkdir ${versioned-name}
-            cp ${src}/*.el ./${versioned-name}
-            tar cf $out ${versioned-name}
-          '';
-        });
-    in {
-      inherit elispBuild;
+    lib = {
+      # elpaBuild requires either a file or tar, so tar up dir first
+      elpaBuildDir = pkgs: epkgs: { packageRequires ? [], pname, src, version }:
+        let
+          versioned-name = "${pname}-${version}";
+        in
+          epkgs.elpaBuild ({ inherit packageRequires pname version; } // {
+            src = pkgs.runCommand "${versioned-name}.tar" {} ''
+              mkdir ${versioned-name}
+              cp ${src}/*.el ./${versioned-name}
+              tar cf $out ${versioned-name}
+            '';
+          });
     };
     nixosModules = {
       auto-upgrade = importWithUnstable ./nixos/modules/auto-upgrade.nix;

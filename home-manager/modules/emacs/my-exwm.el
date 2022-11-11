@@ -1,8 +1,10 @@
 ;;; my-exwm.el --- EXWM configuration utilities -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022 Sophist
+;; Copyright (C) 2022 sophist
 
 ;; Author: sophist <sophist@discursive.club>
+;; Version: 0.0.0
+;; Package-Requires: ((emacs "28.1") (exwm "0.26"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -27,7 +29,6 @@
 (require 'exwm-mff)
 (require 'exwm-modeline)
 (require 'exwm-config)
-(require 'my)
 
 (defun my-exwm-buffer-class (buffer)
   (with-current-buffer buffer exwm-class-name))
@@ -207,3 +208,4 @@
 (provide-theme 'my-exwm)
 
 (provide 'my-exwm)
+;;; my-exwm.el ends here
